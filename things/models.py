@@ -8,3 +8,10 @@ class Thing(models.Model):
         validators=[MinValueValidator(0),MaxValueValidator(50)]
     )
     created_at = models.DateTimeField(auto_now_add=True)
+
+class ThingsForm(models.Model):
+    name = models.CharField(max_length=35, unique=True)
+    description = models.TextArea(max_length=120, blank=True)
+    quantity = models.NumberInput(
+        validators=[MinValueValidator(0),MaxValueValidator(50)]
+    )
